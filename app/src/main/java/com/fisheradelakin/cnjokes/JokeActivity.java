@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,7 +71,7 @@ public class JokeActivity extends Activity {
                 String joke = c.getString("joke");
                 // set json data in textview
                 jokeText = (TextView) findViewById(R.id.jokeText);
-                jokeText.setText(joke);
+                jokeText.setText(joke.replace("&quot;", "\"").replace("&amp;", "&").replace("&#39;", "\'"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
