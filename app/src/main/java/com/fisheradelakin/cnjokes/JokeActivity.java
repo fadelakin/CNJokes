@@ -5,8 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * Created by Fisher on 8/22/14.
+ *
+ * An app that tells you a random Chuck Norris Joke every time you hit a button.
+ */
 
 public class JokeActivity extends Activity {
+
+    private static String url = "http://api.icndb.com/jokes/random";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
