@@ -35,6 +35,7 @@
         android:id="@+id/showJokeButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="#ffffffff" />
+        android:background="#ffffffff"
+        android:textColor="#ff51b46d" />
 
 </RelativeLayout>
