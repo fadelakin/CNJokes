@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CN Jokes</string>
+    <string name="default_joke">If, by some incredible space-time paradox, Chuck Norris would ever fight himself, he'd win. Period.</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="did_you_know">Did you know?</string>
+    <string name="another_joke">Show Another Joke!</string>
+
+</resources>
