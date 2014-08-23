@@ -63,14 +63,12 @@ public class JSONParser {
 
         try {
             // try parsing the string to a JSON object
-            // jObj = new JSONObject(json);
-            jObj = new JSONObject(json.substring(json.indexOf("{"), json.lastIndexOf("}") + 1));
+            jObj = new JSONObject(json);
         } catch(Exception e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
 
         // return json string
         return jObj;
-        // return new JSONObject(json.substring(json.indexOf("{"), json.lastIndexOf("}") + 1));
     }
 }

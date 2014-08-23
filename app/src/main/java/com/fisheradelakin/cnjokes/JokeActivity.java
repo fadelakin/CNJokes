@@ -9,9 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -23,10 +20,8 @@ import org.json.JSONObject;
 public class JokeActivity extends Activity {
 
     static String url = "http://api.icndb.com/jokes/random";
-    // private static final String TAG_JOKE = "joke";
 
     TextView jokeText;
-    JSONObject jokes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +65,6 @@ public class JokeActivity extends Activity {
                 // jokes = json.getJSONArray(TAG_JOKE);
                 // getting json from url
                 JSONObject c = json.getJSONObject("value");
-                // JSONObject value = c.getJSONObject("joke");
                 // store json item
                 String joke = c.getString("joke");
                 // set json data in textview
