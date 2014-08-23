@@ -4,12 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import org.json.JSONObject;
 
@@ -22,8 +19,8 @@ import org.json.JSONObject;
 public class JokeActivity extends Activity {
 
     static String url = "http://api.icndb.com/jokes/random";
-
     TextView jokeText;
+    Colors mColor = new Colors();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +28,16 @@ public class JokeActivity extends Activity {
         setContentView(R.layout.activity_joke);
 
         // final TextView jokeText = (TextView) findViewById(R.id.jokeText);
-        Button jokeButton = (Button) findViewById(R.id.showJokeButton);
+        final Button jokeButton = (Button) findViewById(R.id.showJokeButton);
+        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new JSONParse().execute();
+                int color = mColor.getColor();
+                layout.setBackgroundColor(color);
+                jokeButton.setTextColor(color);
             }
         };
         jokeButton.setOnClickListener(listener);

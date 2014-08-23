@@ -7,5 +7,6 @@
 
     <string name="did_you_know">Did you know?</string>
     <string name="another_joke">Show Another Joke!</string>
+    <string name="version">1.0</string>
 
 </resources>
