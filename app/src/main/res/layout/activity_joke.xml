@@ -24,13 +24,14 @@
         android:textSize="@dimen/text_size"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:id="@+id/jokeText"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/another_joke"
-        android:id="@+id/showFactButton"
+        android:id="@+id/showJokeButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="#ffffffff" />

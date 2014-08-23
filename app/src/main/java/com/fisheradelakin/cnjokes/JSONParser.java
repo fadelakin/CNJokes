@@ -49,7 +49,7 @@ public class JSONParser {
         }
 
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"), 8);
             StringBuilder sb = new StringBuilder();
             String line;
             while((line = reader.readLine()) != null) {
@@ -63,12 +63,14 @@ public class JSONParser {
 
         try {
             // try parsing the string to a JSON object
-            jObj = new JSONObject(json);
+            // jObj = new JSONObject(json);
+            jObj = new JSONObject(json.substring(json.indexOf("{"), json.lastIndexOf("}") + 1));
         } catch(Exception e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
 
         // return json string
         return jObj;
+        // return new JSONObject(json.substring(json.indexOf("{"), json.lastIndexOf("}") + 1));
     }
 }
