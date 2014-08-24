@@ -46,16 +46,10 @@ public class Colors {
 
     };
 
+    // Randomly select a color
+    static Random rand = new Random();
+
     public int getColor() {
-
-        String color;
-        // Randomly select a fact
-        Random randomGenerator = new Random(); // random number generator
-        int randomNumber = randomGenerator.nextInt(mColors.length);
-
-        color = mColors[randomNumber];
-        int colorAsInt = Color.parseColor(color);
-
-        return colorAsInt;
+        return Color.parseColor(mColors[rand.nextInt(mColors.length)]);
     }
 }
