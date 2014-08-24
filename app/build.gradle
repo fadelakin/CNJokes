@@ -16,7 +16,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 20
         versionCode 1
-        versionName '1.0'
+        versionName '1.1'
     }
     buildTypes {
         release {
@@ -31,4 +31,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile files('libs/alarmpad-api-r1.0.jar')
 }
