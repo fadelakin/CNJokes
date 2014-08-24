@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 public class JokeActivity extends Activity {
 
-    static String url = "http://api.icndb.com/jokes/random";
+    public static final String URL = "http://api.icndb.com/jokes/random";
     TextView jokeText;
     Colors mColor = new Colors();
 
@@ -58,7 +58,7 @@ public class JokeActivity extends Activity {
         protected JSONObject doInBackground(String... args) {
             JSONParser jParser = new JSONParser();
             // Getting JSON from URL
-            JSONObject json = jParser.getJsonFromUrl(url);
+            JSONObject json = jParser.getJsonFromUrl(URL);
             return json;
         }
         @Override
