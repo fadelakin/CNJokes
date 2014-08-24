@@ -9,4 +9,6 @@
     <string name="another_joke">Show Another Joke!</string>
     <string name="version">1.0</string>
 
+    <string name="no_joke">Chuck Norris has no jokes for you at this moment. Are you complaining?</string>
+    <string name="alarmpad_extension_description">Displays Chuck Norris jokes</string>
 </resources>
