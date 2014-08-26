@@ -2,12 +2,17 @@ package com.fisheradelakin.cnjokes;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.json.JSONObject;
 
 /**
@@ -34,7 +39,7 @@ public class JokeActivity extends Activity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(networkIsAvailable()) {
+                if(isNetworkAvailable()) {
                     new JSONParse().execute();
                     int color = mColor.getColor();
                     layout.setBackgroundColor(color);
@@ -43,6 +48,20 @@ public class JokeActivity extends Activity {
             }
         };
         jokeButton.setOnClickListener(listener);
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+
+        boolean isAvailable = false;
+        if(networkInfo != null && networkInfo.isConnected()) {
+            isAvailable = true;
+        } else {
+            Toast.makeText(this, "No network. Sorry, jokes are not available.", Toast.LENGTH_SHORT).show();
+        }
+
+        return isAvailable;
     }
 
     private class JSONParse extends AsyncTask<String, String, JSONObject> {
