@@ -34,10 +34,12 @@ public class JokeActivity extends Activity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new JSONParse().execute();
-                int color = mColor.getColor();
-                layout.setBackgroundColor(color);
-                jokeButton.setTextColor(color);
+                if(networkIsAvailable()) {
+                    new JSONParse().execute();
+                    int color = mColor.getColor();
+                    layout.setBackgroundColor(color);
+                    jokeButton.setTextColor(color);
+                }
             }
         };
         jokeButton.setOnClickListener(listener);
