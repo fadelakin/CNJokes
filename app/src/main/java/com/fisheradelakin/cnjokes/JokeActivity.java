@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -26,6 +26,8 @@ public class JokeActivity extends Activity {
     public static final String URL = "http://api.icndb.com/jokes/random";
     TextView jokeText;
     Colors mColor = new Colors();
+
+    private OfflineJokes mOfflineJokes = new OfflineJokes();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,13 @@ public class JokeActivity extends Activity {
                     int color = mColor.getColor();
                     layout.setBackgroundColor(color);
                     jokeButton.setTextColor(color);
+                } else {
+                    final TextView jokeText= (TextView) findViewById(R.id.jokeText);
+                    String joke = mOfflineJokes.getJoke();
+                    jokeText.setText(joke);
+                    int color = mColor.getColor();
+                    layout.setBackgroundColor(color);
+                    jokeButton.setTextColor(color);
                 }
             }
         };
@@ -58,7 +67,7 @@ public class JokeActivity extends Activity {
         if(networkInfo != null && networkInfo.isConnected()) {
             isAvailable = true;
         } else {
-            Toast.makeText(this, "No network. Sorry, jokes are not available.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "No network. Sorry, jokes are not available.", Toast.LENGTH_SHORT).show();
         }
 
         return isAvailable;
