@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-//import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -66,8 +65,6 @@ public class JokeActivity extends Activity {
         boolean isAvailable = false;
         if(networkInfo != null && networkInfo.isConnected()) {
             isAvailable = true;
-        } else {
-            //Toast.makeText(this, "No network. Sorry, jokes are not available.", Toast.LENGTH_SHORT).show();
         }
 
         return isAvailable;
