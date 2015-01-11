@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class JokeActivity extends Activity {
 
     public static final String URL = "http://api.icndb.com/jokes/random";
-    TextView jokeText;
+    TextView mJokeText;
     Colors mColor = new Colors();
 
     private OfflineJokes mOfflineJokes = new OfflineJokes();
@@ -33,10 +33,8 @@ public class JokeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke);
 
-        // final TextView jokeText = (TextView) findViewById(R.id.jokeText);
-        final Button jokeButton = (Button) findViewById(R.id.showJokeButton);
         final RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
-
+        final Button jokeButton = (Button) findViewById(R.id.showJokeButton);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,14 +90,13 @@ public class JokeActivity extends Activity {
         protected void onPostExecute(JSONObject json) {
         pDialog.dismiss();
             try {
-                // jokes = json.getJSONArray(TAG_JOKE);
                 // getting json from url
                 JSONObject c = json.getJSONObject("value");
                 // store json item
                 String joke = c.getString("joke");
                 // set json data in textview
-                jokeText = (TextView) findViewById(R.id.jokeText);
-                jokeText.setText(joke.replace("&quot;", "\"").replace("&amp;", "&").replace("&#39;", "\'"));
+                mJokeText = (TextView) findViewById(R.id.jokeText);
+                mJokeText.setText(joke.replace("&quot;", "\"").replace("&amp;", "&").replace("&#39;", "\'"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
